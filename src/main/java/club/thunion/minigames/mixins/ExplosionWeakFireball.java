@@ -11,13 +11,13 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(Explosion.class)
-public abstract class Explosion_weakFireball {
+public abstract class ExplosionWeakFireball {
     private static final double KNOCKBACK_AMPLIFICATION = 4.0;
     private static final double DAMAGE_REDUCTION = 1.0 / 7;
 
     @ModifyConstant(method = "collectBlocksAndDamageEntities", constant = @Constant(doubleValue = 7.0))
     public double weakenFireballs(double constant) {
-        Explosion self = (Explosion) (Object) this;
+        Explosion self = (Explosion) (Object) this; 
         return self.getEntity() instanceof FireballEntity ? (constant * DAMAGE_REDUCTION) : constant;
     }
 

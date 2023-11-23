@@ -18,8 +18,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Iterator;
 
 @Mixin(ProjectileEntity.class)
-public abstract class ProjectileEntity_interfere extends Entity implements Ownable {
-    public ProjectileEntity_interfere(EntityType<?> type, World world) {
+public abstract class ProjectileEntityInterfere extends Entity implements Ownable {
+    public ProjectileEntityInterfere(EntityType<?> type, World world) {
         super(type, world);
     }
 

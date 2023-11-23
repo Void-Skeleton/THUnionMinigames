@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 
 @Mixin(TridentEntity.class)
-public abstract class TridentEntity_thunder {
+public abstract class TridentEntityThunder {
     public void thunder(TridentEntity self, Entity hitEntity) {
         if (hitEntity == null) {
             List<PlayerEntity> playersNearby = self.getWorld().getEntitiesByClass(PlayerEntity.class,
@@ -56,7 +56,7 @@ public abstract class TridentEntity_thunder {
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     public void channelTick(CallbackInfo ci) {
         TridentEntity self = (TridentEntity) (Object) this;
-        if (((PersistentProjectileEntity_accessor) self).getInGroundTicks() == 3 && ThunderTrident.thunderTridents.remove(self)) {
+        if (((PersistentProjectileEntityAccessor) self).getInGroundTicks() == 3 && ThunderTrident.thunderTridents.remove(self)) {
             thunder(self, null);
             ci.cancel();
         }

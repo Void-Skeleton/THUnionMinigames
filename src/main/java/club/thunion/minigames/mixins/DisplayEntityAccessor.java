@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(DisplayEntity.class)
-public interface DisplayEntity_accessor {
+public interface DisplayEntityAccessor {
     @Invoker("setTransformation")
     void invokeSetTransformation(AffineTransformation transformation);
 }

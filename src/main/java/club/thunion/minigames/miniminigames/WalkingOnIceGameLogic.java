@@ -1,6 +1,5 @@
 package club.thunion.minigames.miniminigames;
 
-import club.thunion.minigames.util.PropertyReader;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -11,12 +10,11 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 
-import static com.mojang.text2speech.Narrator.LOGGER;
 import static net.minecraft.server.command.CommandManager.literal;
 
-public class walkingOnIceGameLogic {
-    PlayerEntity player = walkingOnIceGameEntities.player;
-    World world = walkingOnIceGameEntities.world;
+public class WalkingOnIceGameLogic {
+    PlayerEntity player = WalkingOnIceGameEntities.player;
+    World world = WalkingOnIceGameEntities.world;
     BlockState block;
     static BlockPos pos, gameEndPos;
     static Vec3d startPos, endPos, gameEndPos1;
@@ -46,7 +44,7 @@ public class walkingOnIceGameLogic {
         gameEndPos1 = new Vec3d(-11, 71, 10);
         //}
         gameEndPos = new BlockPos((int) gameEndPos1.x, (int) gameEndPos1.y, (int) gameEndPos1.z);
-        world = walkingOnIceGameEntities.player.getWorld();
+        world = WalkingOnIceGameEntities.player.getWorld();
         block = world.getBlockState(pos);
         if (block.isOf(Blocks.ICE)) {
             // 如果脚下是冰块，则将其替换为蓝冰块
@@ -61,9 +59,9 @@ public class walkingOnIceGameLogic {
     }
 
     public void gameFail() {
-        player = walkingOnIceGameEntities.player;
+        player = WalkingOnIceGameEntities.player;
         player.sendMessage(Text.literal("看上去失败了呢，不要灰心，再来一次吧"));
-        walkingOnIceGameEntities.isEnabled = false;
+        WalkingOnIceGameEntities.isEnabled = false;
         gameRestart();
     }
 
@@ -74,16 +72,16 @@ public class walkingOnIceGameLogic {
         //}
         player.sendMessage(Text.literal("恭喜你完成走冰小游戏，现在去取你的奖励吧"));
         player.teleport(endPos.getX(), endPos.getY(), endPos.getZ());
-        walkingOnIceGameEntities.isEnabled = false;
+        WalkingOnIceGameEntities.isEnabled = false;
     }
 
     public void gameRestart() {
-        startPos = walkingOnIceGameEntities.startPos;
+        startPos = WalkingOnIceGameEntities.startPos;
         //area= reader.readBlockBox("icegame.areaBox");
         //if(area==null){
         //}
         BlockPos.Mutable mutablePos = new BlockPos.Mutable();
-        world = walkingOnIceGameEntities.player.getWorld();
+        world = WalkingOnIceGameEntities.player.getWorld();
         player.teleport(-17, 72, 18);
         for (int x = area.getMinX(); x <= area.getMaxX(); x++) {
             for (int z = area.getMinZ(); z <= area.getMaxZ(); z++) {
@@ -122,7 +120,7 @@ public class walkingOnIceGameLogic {
     private static int spawnInvisibleArmorStand(World world, Vec3d position, Vec2f rotation, String name) {
         // 创建一个盔甲架实体对象，传入世界和位置参数
         Text Name = Text.literal(name);
-        walkingOnIceGameEntities armorStand = new walkingOnIceGameEntities(EntityType.ARMOR_STAND, world, Name);
+        WalkingOnIceGameEntities armorStand = new WalkingOnIceGameEntities(EntityType.ARMOR_STAND, world, Name);
         // 设置盔甲架的位置
         armorStand.setPosition(position);
         world.spawnEntity(armorStand);

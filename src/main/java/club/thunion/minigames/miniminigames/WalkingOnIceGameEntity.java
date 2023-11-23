@@ -5,6 +5,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 
-public interface walkingOnIceGameEntity {
+public interface WalkingOnIceGameEntity {
     ActionResult interactAt(PlayerEntity player, Vec3d hitPos, Hand hand);
 }

@@ -11,8 +11,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ExplosiveProjectileEntity.class)
-public abstract class FireballEntity_selfDestruct extends ProjectileEntity {
-    public FireballEntity_selfDestruct(EntityType<? extends ProjectileEntity> entityType, World world) {
+public abstract class FireballEntitySelfDestruct extends ProjectileEntity {
+    public FireballEntitySelfDestruct(EntityType<? extends ProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
 

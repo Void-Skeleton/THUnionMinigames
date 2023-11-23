@@ -1,19 +1,15 @@
 package club.thunion.minigames.miniminigames;
 
-import club.thunion.minigames.util.PropertyReader;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-import static com.mojang.text2speech.Narrator.LOGGER;
-
-public class walkingOnIceGameEntities extends ArmorStandEntity {
+public class WalkingOnIceGameEntities extends ArmorStandEntity {
     public static PlayerEntity player;
     public static World world;
     static Vec3d startPos;
@@ -22,7 +18,7 @@ public class walkingOnIceGameEntities extends ArmorStandEntity {
     public static boolean isEnabled = false;
 
     // 构造方法，调用父类的构造方法，并设置一些属性
-    public walkingOnIceGameEntities(EntityType<? extends ArmorStandEntity> entityType, World world, Text name) {
+    public WalkingOnIceGameEntities(EntityType<? extends ArmorStandEntity> entityType, World world, Text name) {
         super(entityType, world);
         this.setInvisible(true); // 设置为隐形
         this.setInvulnerable(true); // 设置为无敌

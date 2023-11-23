@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(PersistentProjectileEntity.class)
-public interface PersistentProjectileEntity_accessor {
+public interface PersistentProjectileEntityAccessor {
     @Accessor("inGroundTime")
     int getInGroundTicks();
 }

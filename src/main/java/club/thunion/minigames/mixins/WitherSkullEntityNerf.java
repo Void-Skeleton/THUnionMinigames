@@ -19,9 +19,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static club.thunion.minigames.THUnionSurvivalGames.SERVER;
 
 @Mixin(WitherSkullEntity.class)
-public class WitherSkullEntity_nerf extends ExplosiveProjectileEntity  {
+public class WitherSkullEntityNerf extends ExplosiveProjectileEntity  {
 
-    protected WitherSkullEntity_nerf(EntityType<? extends ExplosiveProjectileEntity> entityType, World world) {
+    protected WitherSkullEntityNerf(EntityType<? extends ExplosiveProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
 

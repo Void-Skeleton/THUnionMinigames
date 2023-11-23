@@ -10,7 +10,6 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.HitResult;
@@ -22,12 +21,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import javax.swing.*;
 import java.util.List;
 
 @Mixin(SnowballEntity.class)
-public abstract class SnowballEntity_iceBombAndScreener extends ThrownItemEntity {
-    public SnowballEntity_iceBombAndScreener(EntityType<? extends ThrownItemEntity> entityType, World world) {
+public abstract class SnowballEntityIceBombAndScreener extends ThrownItemEntity {
+    public SnowballEntityIceBombAndScreener(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
     }
 
